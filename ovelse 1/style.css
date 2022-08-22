@@ -1,0 +1,15 @@
+main {
+  display: grid;
+  justify-content: space-evenly;
+}
+
+div {
+  border: 2px solid red;
+  border-radius: 12px;
+  margin: 20px;
+}
+
+#cola,
+#ol {
+  grid-row: 2;
+}
