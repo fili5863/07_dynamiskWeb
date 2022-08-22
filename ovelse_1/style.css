@@ -1,15 +1,11 @@
 main {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-div {
-  border: 2px solid red;
+div img {
+  border: 2px solid black;
   border-radius: 12px;
   margin: 20px;
-}
-
-#cola,
-#ol {
-  grid-row: 2;
 }
