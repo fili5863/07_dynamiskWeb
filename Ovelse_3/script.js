@@ -1,11 +1,21 @@
-let forsog = 1;
+document.querySelector("button").addEventListener("click", tjekTal);
+let forsog = 0;
+const ranNum = Math.floor(Math.random() * 11);
+console.log(ranNum);
+const tal = document.querySelector("tal");
 
-const tal = document.querySelector(".tal");
-
-let randTal = Math.floor(Math.random() * 11);
-console.log(randTal);
-
-const gaet = Number(tal.value);
-if (gaet === randTal) {
-  console.log("du vandt");
+function tjekTal() {
+  forsog++;
+  const brugerTal = document.querySelector("#tal").value;
+  if (ranNum > brugerTal) {
+    alert("Øv!" + brugerTal + " var for lavt. Prøv igen :)");
+    console.log(ranNum, brugerTal);
+  } else if (ranNum < brugerTal) {
+    alert("Øv!" + brugerTal + " var for højt. Prøv igen :)");
+    console.log(ranNum, brugerTal);
+  } else {
+    alert(brugerTal + " er rigtigt!" + " Du brugte " + forsog + " forsøg. Prøv igen");
+    console.log("Du gættede rigtigt!");
+    location.reload();
+  }
 }
