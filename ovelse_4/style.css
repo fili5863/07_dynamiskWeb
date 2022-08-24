@@ -16,6 +16,7 @@ h1 {
 section {
   display: flex;
   flex-wrap: wrap;
+  gap: 50px;
   justify-content: space-between;
   margin-block-end: 50px;
 }
@@ -27,7 +28,9 @@ p {
 p {
   max-width: 80ch;
 }
-
+img {
+  max-width: 100%;
+}
 footer {
   text-align: center;
   padding-block: 20px;
