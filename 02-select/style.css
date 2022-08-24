@@ -1,0 +1,39 @@
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+header,
+footer,
+article {
+  border: solid 1px black;
+}
+
+h1 {
+  text-align: center;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-block-end: 50px;
+}
+
+h3,
+p {
+  margin-block: 6px;
+}
+p {
+  width: 0;
+  min-width: 100%;
+  text-align: justify;
+}
+img {
+  max-width: 100%;
+}
+footer {
+  text-align: center;
+  padding-block: 20px;
+}
