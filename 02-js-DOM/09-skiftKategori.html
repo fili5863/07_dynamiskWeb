@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Titel</h1>
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article>
+          <img src="https://placeimg.com/640/480/animals" alt="" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quod voluptas at iusto
+            reprehenderit labore animi quas fugit aperiam corporis! Accusamus quo facere provident
+            consectetur maxime amet fuga assumenda incidunt, ratione nemo sint nihil qui
+            voluptatibus repellendus iusto autem, eveniet velit, aspernatur harum repellat?
+            Repudiandae, nostrum! Numquam blanditiis commodi dolor.
+          </p>
+        </article>
+        <article>
+          <img id="billede" src="https://placeimg.com/640/480/animals" alt="" />
+          <h3>Article 2</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quod voluptas at iusto
+            reprehenderit labore animi quas fugit aperiam corporis! Accusamus quo facere provident
+            consectetur maxime amet fuga assumenda incidunt, ratione nemo sint nihil qui
+            voluptatibus repellendus iusto autem, eveniet velit, aspernatur harum repellat?
+            Repudiandae, nostrum! Numquam blanditiis commodi dolor.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>This is a footer</footer>
+    <script>
+      const billede1 = document.querySelector("article:nth-child(1) img");
+
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        let mainSection = document.querySelector("section");
+        // nyt article element
+        let newArticle = document.createElement("article");
+        // nyt h# element
+        let overskrift = document.createElement("h3");
+        // tekst til overskriften
+        let overskriftTekst = document.createTextNode("Article 3");
+        // indsæt tekst i overskriften
+        overskrift.appendChild(overskriftTekst);
+        // tilføj overskrift til article
+        newArticle.appendChild(overskrift);
+        // tilføj article til section
+        mainSection.appendChild(newArticle);
+
+        console.log(ranNum);
+      }
+
+      billede1.addEventListener("click", skiftbillede);
+
+      function skiftbillede() {
+        let ranNum = Math.floor(Math.random() * 11);
+        billede1.src = "https://placeimg.com/640/480/arch?t=" + ranNum;
+      }
+
+      const kategorier = ["animals", "arch", "people", "nature", "tech"];
+
+      billede.addEventListener("click", skift);
+
+      function skift() {
+        const billedTal = Math.round(Math.random() * 10);
+        const kategoriIndex = Math.round(Math.random() * 4);
+        billede.src =
+          "https://placeimg.com/640/480/" + kategorier[kategoriIndex] + "?t=" + billedTal;
+        billede.alt = kategorier[kategoriIndex] + " nr " + billedTal;
+      }
+    </script>
+  </body>
+</html>
