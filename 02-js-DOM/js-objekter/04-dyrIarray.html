@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article id="grisbas">
+      <p></p>
+      <img src="" alt="" />
+    </article>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let dyrene = [
+        {
+          dyr: "Gris",
+          type: "Pattedyr",
+          levested: "Svinesti",
+          billede: "http://mabe-kea.dk/E19/pics/pig.png",
+        },
+        {
+          dyr: "frø",
+          type: "amfibie",
+          levested: "vandhullet",
+          billede: "http://mabe-kea.dk/E19/pics/frog.png",
+        },
+        {
+          dyr: "ræv",
+          type: "pattedyr",
+          levested: "skoven",
+          billede: "http://mabe-kea.dk/E19/pics/fox.png",
+        },
+        {
+          dyr: "sild",
+          type: "fisk",
+          levested: "havet",
+          billede: "http://mabe-kea.dk/E19/pics/sild.png",
+        },
+        {
+          dyr: "krokodille",
+          type: "krybdyr",
+          levested: "floden",
+          billede: "http://mabe-kea.dk/E19/pics/kroko.png",
+        },
+      ];
+      function start() {
+        dyrene.forEach((dyrene) =>
+          console.log(`Dyr: ${dyrene.dyr}, Type: ${dyrene.type}, Levested: ${dyrene.levested}`)
+        );
+      }
+    </script>
+  </body>
+</html>
