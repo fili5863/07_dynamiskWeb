@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      article {
+        border: solid 2px blue;
+        margin-block-end: 10px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="data-container"></section>
+    <template>
+      <article class="alleDyreneSamlet">
+        <h2></h2>
+        <img src="" alt="" />
+        <p class="type"></p>
+        <p class="levested"></p>
+      </article>
+    </template>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let alleDyrene = [
+        {
+          dyr: "gris",
+          type: "pattedyr",
+          levested: "svinesti",
+          billede: "http://mabe-kea.dk/E19/pics/pig.png",
+        },
+        {
+          dyr: "frø",
+          type: "amfibie",
+          levested: "vandhullet",
+          billede: "http://mabe-kea.dk/E19/pics/frog.png",
+        },
+        {
+          dyr: "ræv",
+          type: "pattedyr",
+          levested: "skoven",
+          billede: "http://mabe-kea.dk/E19/pics/fox.png",
+        },
+        {
+          dyr: "sild",
+          type: "fisk",
+          levested: "havet",
+          billede: "http://mabe-kea.dk/E19/pics/sild.jpg",
+        },
+        {
+          dyr: "krokodille",
+          type: "krybdyr",
+          levested: "floden",
+          billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
+        },
+      ];
+
+      function start() {
+        /*         dyrene.forEach((dyrene) =>
+          console.log(`Dyr: ${dyrene.dyr}, Type: ${dyrene.type}, Levested: ${dyrene.levested}`)
+        ); */
+        /*         dyrene.forEach(
+          (dyrene) =>
+            (document.querySelector(
+              "#alledyrene"
+            ).innerHTML += `<p>${dyrene.dyr}, ${dyrene.type} fra ${dyrene.levested}</p>`)
+        ); */
+        const container = document.querySelector(".data-container");
+        const dyrTemplate = document.querySelector("template");
+        //løb dyrelisten igennem og indsæt data i template
+        alleDyrene.forEach((dyrene) => {
+          //placer dyr i html
+          let klon = dyrTemplate.cloneNode(true).content;
+          klon.querySelector("h2").textContent = dyrene.dyr;
+          klon.querySelector("img").src = dyrene.billede;
+          klon.querySelector(".type").textContent = dyrene.type;
+          klon.querySelector(".levested").textContent = dyrene.levested;
+          container.appendChild(klon);
+        });
+      }
+    </script>
+  </body>
+</html>
