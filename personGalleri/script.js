@@ -23,6 +23,7 @@ function vis(json) {
     klon.querySelector(".email").textContent = person.email;
     klon.querySelector(".titel").textContent = person.titel;
     klon.querySelector(".fødselsdag").textContent = person.fødselsdag;
+    klon.querySelector(".hobby").textContent = person.hobby;
     main.appendChild(klon);
   });
 }
