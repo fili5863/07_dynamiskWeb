@@ -71,7 +71,7 @@
         const container = document.querySelector(".data-container");
         const dyrTemplate = document.querySelector("template");
         //løb dyrelisten igennem og indsæt data i template
-        alleDyrene.forEach((dyrene) => {
+        alleDyrene.forEach(dyrene => {
           //placer dyr i html
           let klon = dyrTemplate.cloneNode(true).content;
           klon.querySelector("h2").textContent = dyrene.dyr;

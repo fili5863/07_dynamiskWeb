@@ -38,7 +38,7 @@
         const container = document.querySelector(".data-container");
         const dyrTemplate = document.querySelector("template");
         //løb dyrelisten igennem og indsæt data i template
-        json.forEach((dyrene) => {
+        json.forEach(dyrene => {
           //placer dyr i html
           const klon = dyrTemplate.cloneNode(true).content;
           klon.querySelector("h2").textContent = dyrene.dyr;

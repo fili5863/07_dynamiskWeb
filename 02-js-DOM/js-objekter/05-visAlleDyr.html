@@ -47,7 +47,7 @@
           console.log(`Dyr: ${dyrene.dyr}, Type: ${dyrene.type}, Levested: ${dyrene.levested}`)
         ); */
         dyrene.forEach(
-          (dyrene) =>
+          dyrene =>
             (document.querySelector(
               "#alledyrene"
             ).innerHTML += `<p>${dyrene.dyr}, ${dyrene.type} fra ${dyrene.levested}</p>`)
