@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Babushka</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Babushka</h1>
+    </header>
+
+    <main id="liste"></main>
+
+    <template>
+      <article>
+        <img src="" alt="" class="billedeurl" />
+        <h2 class="navn"></h2>
+        <p class="kategori"></p>
+        <p class="oprindelsesregion"></p>
+        <p class="kortBeskrivelse"></p>
+        <p class="langBeskrivelse"></p>
+        <p class="pris"></p>
+      </article>
+    </template>
+    <script>
+      const endpoint = "https://babushka-dd8a.restdb.io/rest/menu";
+      const mereinfo = {
+        headers: {
+          "x-apikey": "600ec2fb1346a1524ff12de4",
+        },
+      };
+
+      async function hentData() {
+        const respons = await fetch(endpoint, mereinfo);
+        const data = await respons.json();
+        console.log(data);
+        vis(data);
+      }
+      const main = document.querySelector("main");
+      const template = document.querySelector("template").content;
+
+      function vis(data) {
+        data.forEach(ret => {
+          const klon = template.cloneNode(true);
+
+          klon.querySelector(".billedeurl").src = "medium/" + ret.billede;
+          klon.querySelector(".navn").textContent = ret.navn;
+          klon.querySelector(".kategori").textContent = ret.kategori;
+          klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+          klon.querySelector(".kortBeskrivelse").textContent = ret.kortbeskrivelse;
+          klon.querySelector(".langBeskrivelse").textContent = ret.langbeskrivelse;
+          klon.querySelector(".pris").textContent = ret.pris + "kr";
+          main.appendChild(klon);
+        });
+      }
+
+      hentData();
+    </script>
+  </body>
+</html>
