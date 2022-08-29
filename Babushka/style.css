@@ -4,7 +4,12 @@ main {
   grid-gap: 1em;
   justify-content: center;
 }
-
+.valgt {
+  background-color: orange;
+  padding: 0.2em;
+  border: 1px solid orange;
+  border-radius: 0.5em;
+}
 article {
   padding: 0.5em;
   border: 1px solid orange;

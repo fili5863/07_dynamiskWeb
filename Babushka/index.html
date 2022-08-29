@@ -11,6 +11,14 @@
     <header>
       <h1>Babushka</h1>
     </header>
+    <nav>
+      <button data-kategori="alle" class="valgt">Alle</button>
+      <button data-kategori="forretter">Forretter</button>
+      <button data-kategori="hovedretter">Hovedretter</button>
+      <button data-kategori="sideorders">Sideorders</button>
+      <button data-kategori="desserter">Desserter</button>
+      <button data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
 
     <main id="liste"></main>
 
@@ -33,27 +41,43 @@
         },
       };
 
+      let data;
+      let filter = "alle";
+
+      const filterKnapper = document.querySelectorAll("nav button");
+      filterKnapper.forEach(knap => knap.addEventListener("click", filtrerKategorier));
+      hentData();
+
+      function filtrerKategorier() {
+        filter = this.dataset.kategori;
+        document.querySelector(".valgt").classList.remove("valgt");
+        this.classList.add("valgt");
+        vis(data);
+      }
+
       async function hentData() {
         const respons = await fetch(endpoint, mereinfo);
-        const data = await respons.json();
+        data = await respons.json();
         console.log(data);
         vis(data);
       }
-      const main = document.querySelector("main");
-      const template = document.querySelector("template").content;
 
       function vis(data) {
+        const main = document.querySelector("main");
+        const template = document.querySelector("template").content;
+        main.textContent = "";
         data.forEach(ret => {
-          const klon = template.cloneNode(true);
-
-          klon.querySelector(".billedeurl").src = "medium/" + ret.billede;
-          klon.querySelector(".navn").textContent = ret.navn;
-          klon.querySelector(".kategori").textContent = ret.kategori;
-          klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
-          klon.querySelector(".kortBeskrivelse").textContent = ret.kortbeskrivelse;
-          klon.querySelector(".langBeskrivelse").textContent = ret.langbeskrivelse;
-          klon.querySelector(".pris").textContent = ret.pris + "kr";
-          main.appendChild(klon);
+          if (filter == ret.kategori || filter == "alle") {
+            const klon = template.cloneNode(true);
+            klon.querySelector(".billedeurl").src = "medium/" + ret.billednavn + "-md.jpg";
+            klon.querySelector(".navn").textContent = ret.navn;
+            klon.querySelector(".kategori").textContent = ret.kategori;
+            klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+            klon.querySelector(".kortBeskrivelse").textContent = ret.kortbeskrivelse;
+            klon.querySelector(".langBeskrivelse").textContent = ret.langbeskrivelse;
+            klon.querySelector(".pris").textContent = ret.pris + "kr";
+            main.appendChild(klon);
+          }
         });
       }
 
