@@ -41,7 +41,6 @@
         <p class="kategori"></p>
         <p class="oprindelsesregion"></p>
         <p class="kortBeskrivelse"></p>
-
         <p class="pris"></p>
       </article>
     </template>
@@ -86,7 +85,6 @@
             klon.querySelector(".kategori").textContent = ret.kategori;
             klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
             klon.querySelector(".kortBeskrivelse").textContent = ret.kortbeskrivelse;
-
             klon.querySelector(".pris").textContent = ret.pris + "kr";
             klon.querySelector("article")
             .addEventListener("click", () => visDetaljer(ret));
@@ -101,14 +99,11 @@ function visDetaljer(ret) {
   popup.querySelector(".navn").textContent = ret.navn;
   popup.querySelector(".kategori").textContent = ret.kategori;
   popup.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
-
   popup.querySelector(".langBeskrivelse").textContent = ret.langbeskrivelse;
   popup.querySelector(".pris").textContent = ret.pris + "kr";
 document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
   
 }
-
-
       hentData();
     </script>
   </body>
