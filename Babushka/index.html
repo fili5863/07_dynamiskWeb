@@ -9,17 +9,16 @@
   </head>
   <body>
     <section id="popup">
-  <div id="luk">&#x2715</div>
-  <article>
-  <h2></h2>
+      <article>
+        <h2></h2>
         <img src="" alt="" class="billedeurl" />
-        <h3>Navn: <span class="navn"></span> </h3>
+        <h3>Navn: <span class="navn"></span></h3>
         <p>Kategori: <span class="kategori"></span></p>
-        <p>Oprindelsesregion: <span class="oprindelsesregion"></span> </p>
+        <p>Oprindelsesregion: <span class="oprindelsesregion"></span></p>
         <p>Beskrivelse: <span class="langBeskrivelse"></span></p>
         <p>Pris: <span class="pris"></span></p>
-  </article>
-</section>
+      </article>
+    </section>
     <header>
       <h1>Babushka</h1>
     </header>
@@ -86,24 +85,22 @@
             klon.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
             klon.querySelector(".kortBeskrivelse").textContent = ret.kortbeskrivelse;
             klon.querySelector(".pris").textContent = ret.pris + "kr";
-            klon.querySelector("article")
-            .addEventListener("click", () => visDetaljer(ret));
+            klon.querySelector("article").addEventListener("click", () => visDetaljer(ret));
             main.appendChild(klon);
           }
         });
       }
-function visDetaljer(ret) {
-  console.log(ret);
-  popup.style.display = "block";
-  popup.querySelector("img").src = "medium/" + ret.billednavn + "-md.jpg";
-  popup.querySelector(".navn").textContent = ret.navn;
-  popup.querySelector(".kategori").textContent = ret.kategori;
-  popup.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
-  popup.querySelector(".langBeskrivelse").textContent = ret.langbeskrivelse;
-  popup.querySelector(".pris").textContent = ret.pris + "kr";
-document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
-  
-}
+      function visDetaljer(ret) {
+        console.log(ret);
+        popup.style.display = "block";
+        popup.querySelector("img").src = "medium/" + ret.billednavn + "-md.jpg";
+        popup.querySelector(".navn").textContent = ret.navn;
+        popup.querySelector(".kategori").textContent = ret.kategori;
+        popup.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+        popup.querySelector(".langBeskrivelse").textContent = ret.langbeskrivelse;
+        popup.querySelector(".pris").textContent = ret.pris + "kr";
+        popup.addEventListener("click", () => (popup.style.display = "none"));
+      }
       hentData();
     </script>
   </body>
