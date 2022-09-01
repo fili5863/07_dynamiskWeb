@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Babushka</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
   </head>
   <body>
     <section id="popup">
@@ -20,16 +23,21 @@
       </article>
     </section>
     <header>
-      <h1>Babushka</h1>
+      <div class="billede">
+        <img src="logo.svg" alt="" />
+      </div>
+
+      <nav>
+        <ul>
+          <li data-kategori="alle" class="valgt">Alle</li>
+          <li data-kategori="forretter">Forretter</li>
+          <li data-kategori="hovedretter">Hovedretter</li>
+          <li data-kategori="sideorders">Sideorders</li>
+          <li data-kategori="desserter">Desserter</li>
+          <li data-kategori="drikkevarer">Drikkevarer</li>
+        </ul>
+      </nav>
     </header>
-    <nav>
-      <button data-kategori="alle" class="valgt">Alle</button>
-      <button data-kategori="forretter">Forretter</button>
-      <button data-kategori="hovedretter">Hovedretter</button>
-      <button data-kategori="sideorders">Sideorders</button>
-      <button data-kategori="desserter">Desserter</button>
-      <button data-kategori="drikkevarer">Drikkevarer</button>
-    </nav>
 
     <main id="liste"></main>
 
@@ -54,7 +62,7 @@
       let data;
       let filter = "alle";
 
-      const filterKnapper = document.querySelectorAll("nav button");
+      const filterKnapper = document.querySelectorAll("nav li");
       filterKnapper.forEach(knap => knap.addEventListener("click", filtrerKategorier));
       hentData();
 
